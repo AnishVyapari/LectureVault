@@ -1,14 +1,22 @@
-my<div align="center">
+<!-- Glass Disk/Audio Themed Banner -->
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=14,17,20,23&height=200&section=header&text=LectureVault&fontSize=60&fontColor=fff&animation=fadeIn&fontAlignY=35&desc=Record.%20Store.%20Review.&descSize=20&descAlignY=55" alt="LectureVault Banner" width="100%"/>
+</div>
+
+<!-- Animated Audio Wave Loader -->
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/74038190/212749447-bfb7e725-6987-49d9-ae85-2015e3e7cc41.gif" width="400">
+  <br>
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&duration=3000&pause=1000&color=9B59B6&center=true&vCenter=true&multiline=true&repeat=true&width=600&height=100&lines=%F0%9F%8E%A4+Recording+Audio...;%F0%9F%8E%A5+Capturing+Screen...;%F0%9F%93%80+Glass+Disk+Processing..." alt="Audio Loader">
+</div>
+
+<div align="center">
 
 # 🎥 LectureVault - Discord Screen & Audio Recorder
 
 ### Automated lecture recording with screen capture and microphone audio for Discord
 
-[![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python&logoColor=white)](https://www.python.org/)
-[![Discord.py](https://img.shields.io/badge/discord.py-2.0%2B-7289DA?logo=discord&logoColor=white)](https://discordpy.readthedocs.io/)
-[![OpenCV](https://img.shields.io/badge/OpenCV-Latest-5C3EE8?logo=opencv&logoColor=white)](https://opencv.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
+[![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python&logoColor=white)](https://www.python.org/) [![Discord.py](https://img.shields.io/badge/discord.py-2.0%2B-7289DA?logo=discord&logoColor=white)](https://discordpy.readthedocs.io/) [![OpenCV](https://img.shields.io/badge/OpenCV-Latest-5C3EE8?logo=opencv&logoColor=white)](https://opencv.org/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
 [Features](#-features) • [Installation](#-installation) • [Usage](#-usage) • [Commands](#-commands) • [Configuration](#%EF%B8%8F-configuration) • [License](#-license)
 
@@ -40,7 +48,6 @@ my<div align="center">
 | 📤 **Auto Upload** | Automatically uploads recordings to Discord channels |
 | ⚙️ **System Integration** | Comprehensive system setup for seamless Discord integration |
 | 🔒 **Secure Configuration** | Token-based authentication with config file |
-| 🚀 **Lightweight** | Ultra-compact AVI format, optimized file sizes (< 8MB per 3-min block) |
 
 ---
 
@@ -49,182 +56,178 @@ my<div align="center">
 ### Prerequisites
 
 - Python 3.8 or higher
-- Discord Bot Token ([Create one here](https://discord.com/developers/applications))
-- Windows OS (for screen recording functionality)
+- Windows OS (for optimal performance)
+- Discord Bot Token ([Get one here](https://discord.com/developers/applications))
 
-### Step 1: Clone the Repository
+### Setup Steps
 
-```bash
-git clone https://github.com/AnishVyapari/RAITRECORDER.git
-cd RAITRECORDER
-```
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/AnishVyapari/LectureVault.git
+   cd LectureVault
+   ```
 
-### Step 2: Install Dependencies
+2. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-```bash
-pip install opencv-python sounddevice scipy numpy discord.py pyautogui pillow psutil
-```
+3. **Configure the bot**
+   - Edit `bot_config.json` with your settings:
+   ```json
+   {
+     "token": "YOUR_BOT_TOKEN",
+     "channel_id": "YOUR_CHANNEL_ID",
+     "screen_record_interval": 180
+   }
+   ```
 
-### Step 3: Configure the Bot
-
-Create a `bot_config.json` file in the root directory:
-
-```json
-{
-  "token": "YOUR_BOT_TOKEN_HERE",
-  "auto_startup": true
-}
-```
-
-⚠️ **Security Warning**: Never commit your real Discord bot token to public repositories!
-
-### Step 4: Run the Bot
-
-```bash
-python recorder_bot.py
-```
+4. **Run the bot**
+   ```bash
+   python Bomboclat.py
+   ```
 
 ---
 
 ## 🎮 Usage
 
-### Automatic Screen Recording
+### Starting the Bot
 
-The bot automatically starts recording your screen when launched:
-- Records in 3-minute intervals
-- Applies 4x speed compression
-- Saves as ultra-compact AVI files (< 8MB)
-- Auto-uploads to configured Discord channel
+1. Run `Bomboclat.py` to start the bot
+2. The bot will automatically:
+   - Connect to Discord
+   - Begin screen recording in 3-minute intervals
+   - Upload recordings to the configured channel
 
-### Manual Microphone Recording
+### Recording Controls
 
-Control mic recording with slash commands:
+```bash
+# Start microphone recording
+/startmic
 
-```
-/startmic  - Begin microphone recording
-/stopmic   - Stop recording and upload WAV file
+# Stop microphone recording
+/stopmic
+
+# Check bot status
+/status
 ```
 
 ---
 
-## 🎯 Commands
+## 📋 Commands
 
-| Command | Description | Permission |
-|---------|-------------|------------|
-| `/startmic` | Start microphone recording | All users |
-| `/stopmic` | Stop mic recording and upload | All users |
+| Command | Description | Usage |
+|---------|-------------|-------|
+| `/startmic` | Start microphone recording | `/startmic` |
+| `/stopmic` | Stop mic recording and upload | `/stopmic` |
+| `/status` | Check recording status | `/status` |
+| `/help` | Display help information | `/help` |
 
 ---
 
 ## ⚙️ Configuration
 
-### `bot_config.json` Options
+### bot_config.json
 
 ```json
 {
-  "token": "YOUR_BOT_TOKEN_HERE",       // Discord bot token
-  "auto_startup": true                    // Auto-start recording on launch
+  "token": "YOUR_DISCORD_BOT_TOKEN",
+  "channel_id": "CHANNEL_ID_FOR_UPLOADS",
+  "screen_record_interval": 180,
+  "video_quality": "720p",
+  "speed_multiplier": 4,
+  "audio_sample_rate": 44100
 }
 ```
 
-### Building an Executable (Optional)
+### Settings Explained
 
-Create a standalone `.exe` file for easier distribution:
-
-```bash
-pyinstaller --onefile --noconsole --add-data "bot_config.json;." --name LectureVault recorder_bot.py
-```
-
-The executable will be created in the `dist/` folder.
+- **token**: Your Discord bot token
+- **channel_id**: Discord channel for uploads
+- **screen_record_interval**: Recording duration in seconds (default: 180)
+- **video_quality**: Resolution (720p, 1080p)
+- **speed_multiplier**: Video speedup factor (default: 4x)
+- **audio_sample_rate**: Audio quality in Hz
 
 ---
 
-## 📁 Project Structure
+## 🛠️ Technical Details
+
+### Architecture
 
 ```
 LectureVault/
-├── recorder_bot.py              # Main bot application
-├── bot_config.json              # Configuration file (DO NOT COMMIT!)
-├── bot_config.json.example      # Example config (safe to commit)
-├── .gitignore                   # Excludes sensitive files
-├── requirements.txt             # Python dependencies
-├── README.md                    # This file
-└── LICENSE                      # MIT License
+├── Bomboclat.py          # Main bot script
+├── bot_config.json       # Configuration file
+├── README.md             # Documentation
+└── .github/
+    └── workflows/        # CI/CD workflows
 ```
+
+### Dependencies
+
+- `discord.py` - Discord API wrapper
+- `opencv-python` - Video processing
+- `pyaudio` - Audio capture
+- `numpy` - Data processing
+- `pillow` - Image handling
+
+### Recording Process
+
+1. **Screen Capture**: Uses OpenCV to capture screen at 720p
+2. **Audio Recording**: Captures microphone input via PyAudio
+3. **Video Encoding**: Compresses with 4x speedup using Windows codecs
+4. **Upload**: Sends to Discord via bot API
 
 ---
 
-## 🛠️ Troubleshooting
+## 🔒 Privacy & Security
 
-### Common Issues
-
-**Bot not responding to commands:**
-- Ensure the bot has proper permissions in your Discord server
-- Verify the bot token is correct in `bot_config.json`
-- Check that slash commands are synced (may take up to 1 hour)
-
-**Recording not working:**
-- Confirm you're running on Windows (required for screen recording)
-- Check that all dependencies are installed: `pip install -r requirements.txt`
-- Verify sufficient disk space for recordings
-
-**Upload failures:**
-- Ensure file sizes are under Discord's limit (8MB for free servers, 50MB for Nitro)
-- Check bot has `ATTACH_FILES` permission in the target channel
+- All recordings are stored locally before upload
+- Bot token should be kept secure
+- Recordings are automatically deleted after upload
+- No external services collect your data
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are welcome! Here's how you can help:
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-1. 🍴 Fork the repository
-2. 🔧 Create a feature branch: `git checkout -b feature/AmazingFeature`
-3. 💾 Commit your changes: `git commit -m 'Add some AmazingFeature'`
-4. 📤 Push to the branch: `git push origin feature/AmazingFeature`
-5. 🔍 Open a Pull Request
-
----
-
-## 📄 License
-
-This project is licensed under the **MIT License** - see below for details:
-
-```
-MIT License
-
-Copyright (c) 2025 Anish Vyapari
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ---
 
-## 🌐 Connect
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🙏 Acknowledgments
+
+- Discord.py community for excellent documentation
+- OpenCV contributors for powerful video processing
+- All contributors and users of LectureVault
+
+---
+
+## 📧 Contact
+
+For questions, issues, or suggestions:
+
+- Open an [Issue](https://github.com/AnishVyapari/LectureVault/issues)
+- Submit a [Pull Request](https://github.com/AnishVyapari/LectureVault/pulls)
+- Join our Discord community
+
+---
 
 <div align="center">
-
-[![GitHub](https://img.shields.io/badge/GitHub-AnishVyapari-181717?logo=github&logoColor=white)](https://github.com/AnishVyapari)
-[![Discord](https://img.shields.io/badge/Discord-Join%20Server-7289DA?logo=discord&logoColor=white)](https://discord.gg/your-server)
-
-**Made with ❤️ by Anish Vyapari**
-
-[⬆ Back to top](#-lecturevault---discord-screen--audio-recorder)
-
-</div>op
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=14,17,20,23&height=100&section=footer" alt="Footer" width="100%"/>
+  <br>
+  <strong>Made with ❤️ for students and learners everywhere</strong>
+</div>
